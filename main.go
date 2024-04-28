@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	Components "htmx_templ/view"
+	Components "htmx_templ/view/components"
 	"net/http"
 
 	"github.com/a-h/templ"
