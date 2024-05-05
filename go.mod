@@ -1,4 +1,4 @@
-module htmx_templ
+module github.com/raijinD/learning_htmx_templ
 
 go 1.22.0
 

@@ -2,15 +2,17 @@ package main
 
 import (
 	"fmt"
-	Components "htmx_templ/view/components"
 	"net/http"
+
+	Components "github.com/raijinD/learning_htmx_templ/cmd/views/components"
 
 	"github.com/a-h/templ"
 )
 
 func main() {
-	component := Components.Hello("Raijin")
-
+	component := Components.Hello("Raijin!")
+	fs := http.FileServer(http.Dir("./public"))
+	http.Handle("/public/", http.StripPrefix("/public/", fs))
 	http.Handle("/", templ.Handler(component))
 	http.HandleFunc("/clicked", func(w http.ResponseWriter, r *http.Request) {
 		if r.Method == "POST" {
